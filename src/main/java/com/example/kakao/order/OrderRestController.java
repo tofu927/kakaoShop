@@ -17,8 +17,11 @@ public class OrderRestController {
 
 
     // TODO : 주문 목록 모두 삭제
-    //@PostMapping("/orders/clear")
-
-
+   @PostMapping("/orders/clear")
+    public ResponseEntity<?> clear(User user) {
+        orderService.clear(user);
+        ApiUtils.ApiResult<?> apiResult = ApiUtils.success(null);
+        return ResponseEntity.ok(apiResult);
+    }
 
 }
